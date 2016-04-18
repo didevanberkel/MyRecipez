@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate {
     
@@ -16,6 +17,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var mySelection: Int?
     var searchController: UISearchController!
     var searchResult: [Recipe] = []
+    var indexRow: Int!
+    
+    var banner: GADBannerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +33,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         searchController.searchBar.placeholder = "Search recipe"
         searchController.searchBar.sizeToFit()
         searchController.hidesNavigationBarDuringPresentation = false
+        
+        loadBanner()
     }
     
     override func viewDidAppear(animated: Bool) {
         fetchAndSetResults()
         tableView.reloadData()
+    }
+    
+    func loadBanner() {
+        banner = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        banner.adUnitID = "ca-app-pub-3274698501837481/3467823252"
+        banner.rootViewController = self
+        let request: GADRequest = GADRequest()
+        banner.loadRequest(request)
+        banner.frame = CGRectMake(0, view.bounds.height - banner.frame.size.height, banner.frame.size.width, banner.frame.size.height)
+        self.view.addSubview(banner)
     }
     
     func fetchAndSetResults(){
@@ -82,6 +98,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let recipeDetailController = segue.destinationViewController as! RecipeDetailVC
                 let recipe = searchController.active ? searchResult[indexPath.row] : recipes[indexPath.row]
                 recipeDetailController.configureRecipeData(recipe)
+
+                let indexPath = tableView.indexPathForSelectedRow
+                recipeDetailController.indexRow = indexPath
             }
         }
     }

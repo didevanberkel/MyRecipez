@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA65C8F91CBFE06D000C7206 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C8F81CBFE06D000C7206 /* GoogleMobileAds.framework */; };
+		AA65C8FC1CBFE09B000C7206 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C8FB1CBFE09B000C7206 /* AdSupport.framework */; };
+		AA65C8FE1CBFE0A1000C7206 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C8FD1CBFE0A1000C7206 /* AudioToolbox.framework */; };
+		AA65C9001CBFE0A6000C7206 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C8FF1CBFE0A6000C7206 /* AVFoundation.framework */; };
+		AA65C9021CBFE0AC000C7206 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C9011CBFE0AC000C7206 /* CoreGraphics.framework */; };
+		AA65C9041CBFE0B1000C7206 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C9031CBFE0B1000C7206 /* CoreTelephony.framework */; };
+		AA65C9071CBFE0C1000C7206 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C9051CBFE0C1000C7206 /* EventKit.framework */; };
+		AA65C9081CBFE0C1000C7206 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C9061CBFE0C1000C7206 /* EventKitUI.framework */; };
+		AA65C90A1CBFE0CC000C7206 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C9091CBFE0CC000C7206 /* MessageUI.framework */; };
+		AA65C90C1CBFE0D1000C7206 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C90B1CBFE0D1000C7206 /* StoreKit.framework */; };
+		AA65C90E1CBFE0D6000C7206 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C90D1CBFE0D6000C7206 /* SystemConfiguration.framework */; };
 		AA8912841C9B3627008E81CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8912831C9B3627008E81CB /* AppDelegate.swift */; };
 		AA8912861C9B3627008E81CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8912851C9B3627008E81CB /* ViewController.swift */; };
 		AA8912891C9B3627008E81CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8912871C9B3627008E81CB /* Main.storyboard */; };
@@ -21,6 +32,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA65C8F81CBFE06D000C7206 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = SDKs/GoogleMobileAds.framework; sourceTree = "<group>"; };
+		AA65C8FB1CBFE09B000C7206 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		AA65C8FD1CBFE0A1000C7206 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AA65C8FF1CBFE0A6000C7206 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AA65C9011CBFE0AC000C7206 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AA65C9031CBFE0B1000C7206 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		AA65C9051CBFE0C1000C7206 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		AA65C9061CBFE0C1000C7206 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		AA65C9091CBFE0CC000C7206 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		AA65C90B1CBFE0D1000C7206 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AA65C90D1CBFE0D6000C7206 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AA8912801C9B3627008E81CB /* MyRecipez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecipez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8912831C9B3627008E81CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA8912851C9B3627008E81CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,15 +63,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA65C90E1CBFE0D6000C7206 /* SystemConfiguration.framework in Frameworks */,
+				AA65C90C1CBFE0D1000C7206 /* StoreKit.framework in Frameworks */,
+				AA65C90A1CBFE0CC000C7206 /* MessageUI.framework in Frameworks */,
+				AA65C9071CBFE0C1000C7206 /* EventKit.framework in Frameworks */,
+				AA65C9081CBFE0C1000C7206 /* EventKitUI.framework in Frameworks */,
+				AA65C9041CBFE0B1000C7206 /* CoreTelephony.framework in Frameworks */,
+				AA65C9021CBFE0AC000C7206 /* CoreGraphics.framework in Frameworks */,
+				AA65C9001CBFE0A6000C7206 /* AVFoundation.framework in Frameworks */,
+				AA65C8FE1CBFE0A1000C7206 /* AudioToolbox.framework in Frameworks */,
+				AA65C8FC1CBFE09B000C7206 /* AdSupport.framework in Frameworks */,
+				AA65C8F91CBFE06D000C7206 /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA65C8FA1CBFE07C000C7206 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA65C90D1CBFE0D6000C7206 /* SystemConfiguration.framework */,
+				AA65C90B1CBFE0D1000C7206 /* StoreKit.framework */,
+				AA65C9091CBFE0CC000C7206 /* MessageUI.framework */,
+				AA65C9051CBFE0C1000C7206 /* EventKit.framework */,
+				AA65C9061CBFE0C1000C7206 /* EventKitUI.framework */,
+				AA65C9031CBFE0B1000C7206 /* CoreTelephony.framework */,
+				AA65C9011CBFE0AC000C7206 /* CoreGraphics.framework */,
+				AA65C8FF1CBFE0A6000C7206 /* AVFoundation.framework */,
+				AA65C8FD1CBFE0A1000C7206 /* AudioToolbox.framework */,
+				AA65C8FB1CBFE09B000C7206 /* AdSupport.framework */,
+				AA65C8F81CBFE06D000C7206 /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AA8912771C9B3627008E81CB = {
 			isa = PBXGroup;
 			children = (
+				AA65C8FA1CBFE07C000C7206 /* Frameworks */,
 				AA8912821C9B3627008E81CB /* MyRecipez */,
 				AA8912811C9B3627008E81CB /* Products */,
 			);
@@ -138,6 +190,7 @@
 				TargetAttributes = {
 					AA89127F1C9B3627008E81CB = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 6M7C6U48HK;
 					};
 				};
 			};
@@ -297,10 +350,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Gary Grape (6M7C6U48HK)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDKs",
+				);
 				INFOPLIST_FILE = MyRecipez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.garygrapeproductions.MyRecipez;
+				PRODUCT_BUNDLE_IDENTIFIER = io.didevanberkel.recipelist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "92a2c5e8-e3a5-4249-a4ab-e373bc4f1215";
 			};
 			name = Debug;
 		};
@@ -308,10 +367,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Gary Grape (6M7C6U48HK)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDKs",
+				);
 				INFOPLIST_FILE = MyRecipez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.garygrapeproductions.MyRecipez;
+				PRODUCT_BUNDLE_IDENTIFIER = io.didevanberkel.recipelist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "92a2c5e8-e3a5-4249-a4ab-e373bc4f1215";
 			};
 			name = Release;
 		};

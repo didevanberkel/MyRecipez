@@ -17,5 +17,4 @@ class RecipeCell: UITableViewCell {
         recipeTitle.text = recipe.title
         recipeImage.image = recipe.getRecipeImage()
     }
-
 }
