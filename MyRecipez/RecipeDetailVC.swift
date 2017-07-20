@@ -22,7 +22,7 @@ class RecipeDetailVC: UIViewController {
     var recipeStepsValue: String!
     var recipeImageValue: UIImage!
     
-    var indexRow: NSIndexPath!
+    var indexRow: IndexPath!
     var recipes = [Recipe]()
     
     var banner: GADBannerView!
@@ -43,27 +43,27 @@ class RecipeDetailVC: UIViewController {
         banner.adUnitID = "ca-app-pub-3274698501837481/3467823252"
         banner.rootViewController = self
         let request: GADRequest = GADRequest()
-        banner.loadRequest(request)
-        banner.frame = CGRectMake(0, view.bounds.height - banner.frame.size.height, banner.frame.size.width, banner.frame.size.height)
+        banner.load(request)
+        banner.frame = CGRect(x: 0, y: view.bounds.height - banner.frame.size.height, width: banner.frame.size.width, height: banner.frame.size.height)
         self.view.addSubview(banner)
     }
     
-    func configureRecipeData(recipe: Recipe) {
+    func configureRecipeData(_ recipe: Recipe) {
         recipeTitleValue = recipe.title!
         recipeIngredientsValue = recipe.ingredients!
         recipeStepsValue = recipe.steps!
         recipeImageValue = recipe.getRecipeImage()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "RecipeEdit") {
-            let recipeEditController: CreateRecipeVC = segue.destinationViewController as! CreateRecipeVC
-                recipeEditController.recipeTitleValueEdit = recipeTitleValue
-                recipeEditController.recipeIngredientsValueEdit = recipeIngredientsValue
-                recipeEditController.recipeStepsValueEdit = recipeStepsValue
-                recipeEditController.recipeImageValueEdit = recipeImageValue
-                recipeEditController.indexRow = indexRow
-                recipeEditController.isInEditMode = true
+            let recipeEditController: CreateRecipeVC = segue.destination as! CreateRecipeVC
+            recipeEditController.recipeTitleValueEdit = recipeTitleValue
+            recipeEditController.recipeIngredientsValueEdit = recipeIngredientsValue
+            recipeEditController.recipeStepsValueEdit = recipeStepsValue
+            recipeEditController.recipeImageValueEdit = recipeImageValue
+            recipeEditController.indexRow = indexRow!
+            recipeEditController.isInEditMode = true
         }
     }
 }

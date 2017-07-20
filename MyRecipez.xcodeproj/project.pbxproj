@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA65C8F91CBFE06D000C7206 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C8F81CBFE06D000C7206 /* GoogleMobileAds.framework */; };
+		AA1C01BD1F214CBB006E1C1F /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1C01BC1F214CBB006E1C1F /* GoogleMobileAds.framework */; };
+		AA1C01C01F214F17006E1C1F /* UIViewControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C01BF1F214F17006E1C1F /* UIViewControllerEx.swift */; };
 		AA65C8FC1CBFE09B000C7206 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C8FB1CBFE09B000C7206 /* AdSupport.framework */; };
 		AA65C8FE1CBFE0A1000C7206 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C8FD1CBFE0A1000C7206 /* AudioToolbox.framework */; };
 		AA65C9001CBFE0A6000C7206 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA65C8FF1CBFE0A6000C7206 /* AVFoundation.framework */; };
@@ -32,7 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AA65C8F81CBFE06D000C7206 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = SDKs/GoogleMobileAds.framework; sourceTree = "<group>"; };
+		AA1C01BC1F214CBB006E1C1F /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		AA1C01BF1F214F17006E1C1F /* UIViewControllerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerEx.swift; sourceTree = "<group>"; };
 		AA65C8FB1CBFE09B000C7206 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		AA65C8FD1CBFE0A1000C7206 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AA65C8FF1CBFE0A6000C7206 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -66,6 +68,7 @@
 				AA65C90E1CBFE0D6000C7206 /* SystemConfiguration.framework in Frameworks */,
 				AA65C90C1CBFE0D1000C7206 /* StoreKit.framework in Frameworks */,
 				AA65C90A1CBFE0CC000C7206 /* MessageUI.framework in Frameworks */,
+				AA1C01BD1F214CBB006E1C1F /* GoogleMobileAds.framework in Frameworks */,
 				AA65C9071CBFE0C1000C7206 /* EventKit.framework in Frameworks */,
 				AA65C9081CBFE0C1000C7206 /* EventKitUI.framework in Frameworks */,
 				AA65C9041CBFE0B1000C7206 /* CoreTelephony.framework in Frameworks */,
@@ -73,16 +76,24 @@
 				AA65C9001CBFE0A6000C7206 /* AVFoundation.framework in Frameworks */,
 				AA65C8FE1CBFE0A1000C7206 /* AudioToolbox.framework in Frameworks */,
 				AA65C8FC1CBFE09B000C7206 /* AdSupport.framework in Frameworks */,
-				AA65C8F91CBFE06D000C7206 /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA1C01BE1F214EC8006E1C1F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA1C01BF1F214F17006E1C1F /* UIViewControllerEx.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		AA65C8FA1CBFE07C000C7206 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA1C01BC1F214CBB006E1C1F /* GoogleMobileAds.framework */,
 				AA65C90D1CBFE0D6000C7206 /* SystemConfiguration.framework */,
 				AA65C90B1CBFE0D1000C7206 /* StoreKit.framework */,
 				AA65C9091CBFE0CC000C7206 /* MessageUI.framework */,
@@ -93,7 +104,6 @@
 				AA65C8FF1CBFE0A6000C7206 /* AVFoundation.framework */,
 				AA65C8FD1CBFE0A1000C7206 /* AudioToolbox.framework */,
 				AA65C8FB1CBFE09B000C7206 /* AdSupport.framework */,
-				AA65C8F81CBFE06D000C7206 /* GoogleMobileAds.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,6 +128,7 @@
 		AA8912821C9B3627008E81CB /* MyRecipez */ = {
 			isa = PBXGroup;
 			children = (
+				AA1C01BE1F214EC8006E1C1F /* Extensions */,
 				AAAFE5321C9D50F100662330 /* Controller */,
 				AAAFE5311C9D50ED00662330 /* View */,
 				AAAFE5301C9D50E300662330 /* Model */,
@@ -185,12 +196,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Gary Grape Productions";
 				TargetAttributes = {
 					AA89127F1C9B3627008E81CB = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 6M7C6U48HK;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -233,6 +246,7 @@
 				AAAFE53E1C9D849F00662330 /* RecipeDetailVC.swift in Sources */,
 				AA8912861C9B3627008E81CB /* ViewController.swift in Sources */,
 				AAAFE5351C9D515D00662330 /* Recipe+CoreDataProperties.swift in Sources */,
+				AA1C01C01F214F17006E1C1F /* UIViewControllerEx.swift in Sources */,
 				AA89128C1C9B3627008E81CB /* MyRecipez.xcdatamodeld in Sources */,
 				AAAFE5381C9D54ED00662330 /* RecipeCell.swift in Sources */,
 				AAAFE53A1C9D5C8F00662330 /* CreateRecipeVC.swift in Sources */,
@@ -276,8 +290,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -321,8 +337,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -341,6 +359,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -351,15 +370,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Gary Grape (6M7C6U48HK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
 					"$(PROJECT_DIR)/SDKs",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MyRecipez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.didevanberkel.recipelist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "92a2c5e8-e3a5-4249-a4ab-e373bc4f1215";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -368,15 +391,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Gary Grape (6M7C6U48HK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
 					"$(PROJECT_DIR)/SDKs",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MyRecipez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.didevanberkel.recipelist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "92a2c5e8-e3a5-4249-a4ab-e373bc4f1215";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

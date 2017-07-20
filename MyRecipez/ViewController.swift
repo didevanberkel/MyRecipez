@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var indexRow: Int!
     
     var banner: GADBannerView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -37,7 +37,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         loadBanner()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         fetchAndSetResults()
         tableView.reloadData()
     }
@@ -47,26 +47,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         banner.adUnitID = "ca-app-pub-3274698501837481/3467823252"
         banner.rootViewController = self
         let request: GADRequest = GADRequest()
-        banner.loadRequest(request)
-        banner.frame = CGRectMake(0, view.bounds.height - banner.frame.size.height, banner.frame.size.width, banner.frame.size.height)
+        banner.load(request)
+        banner.frame = CGRect(x: 0, y: view.bounds.height - banner.frame.size.height, width: banner.frame.size.width, height: banner.frame.size.height)
         self.view.addSubview(banner)
     }
     
     func fetchAndSetResults(){
-        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "Recipe")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipe")
         do {
-            let results = try context.executeFetchRequest(fetchRequest)
+            let results = try context.fetch(fetchRequest)
             self.recipes = results as! [Recipe]
         } catch let err as NSError {
             print(err.debugDescription)
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier("RecipeCell") as? RecipeCell {
-            let recipeList = searchController.active ? searchResult[indexPath.row] : recipes[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as? RecipeCell {
+            let recipeList = searchController.isActive ? searchResult[indexPath.row] : recipes[indexPath.row]
             let recipe = recipeList
             cell.configureCell(recipe)
             return cell
@@ -75,76 +75,76 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.active {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.isActive {
             return searchResult.count
         } else {
             return recipes.count
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         mySelection = indexPath.row
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "RecipeDetail") {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let recipeDetailController = segue.destinationViewController as! RecipeDetailVC
-                let recipe = searchController.active ? searchResult[indexPath.row] : recipes[indexPath.row]
+                let recipeDetailController = segue.destination as! RecipeDetailVC
+                let recipe = searchController.isActive ? searchResult[indexPath.row] : recipes[indexPath.row]
                 recipeDetailController.configureRecipeData(recipe)
-
+                
                 let indexPath = tableView.indexPathForSelectedRow
-                recipeDetailController.indexRow = indexPath
+                recipeDetailController.indexRow = indexPath!
             }
         }
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if searchController.active {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if searchController.isActive {
             return false
         } else {
             return true
         }
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
             
-            let app = UIApplication.sharedApplication().delegate as! AppDelegate
+            let app = UIApplication.shared.delegate as! AppDelegate
             let context = app.managedObjectContext
             
-            context.deleteObject(recipes[indexPath.row])
+            context.delete(recipes[indexPath.row])
             app.saveContext()
             
-            recipes.removeAtIndex(indexPath.row)
+            recipes.remove(at: indexPath.row)
             tableView.reloadData()
         }
     }
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
             filterContent(searchText)
             tableView.reloadData()
         }
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        if let searchText = searchController.searchBar.text {
-            filterContent(searchText)
-            tableView.reloadData()
-        }
-    }
+    //    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    //        if let searchText = searchController.searchBar.text {
+    //            filterContent(searchText)
+    //            tableView.reloadData()
+    //        }
+    //    }
     
-    func filterContent(searchText: String) {
+    func filterContent(_ searchText: String) {
         searchResult = recipes.filter({ (recipe: Recipe) -> Bool in
-            let titleMatch = recipe.title?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-            let ingredientsMatch = recipe.ingredients?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            let titleMatch = recipe.title?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+            let ingredientsMatch = recipe.ingredients?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
             return titleMatch != nil || ingredientsMatch != nil
         })
     }

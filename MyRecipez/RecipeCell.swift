@@ -13,7 +13,7 @@ class RecipeCell: UITableViewCell {
     @IBOutlet weak var recipeTitle: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
     
-    func configureCell(recipe: Recipe) {
+    func configureCell(_ recipe: Recipe) {
         recipeTitle.text = recipe.title
         recipeImage.image = recipe.getRecipeImage()
     }
