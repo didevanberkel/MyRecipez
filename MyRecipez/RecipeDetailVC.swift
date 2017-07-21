@@ -36,6 +36,11 @@ class RecipeDetailVC: UIViewController {
         recipeImage.clipsToBounds = true
         
         loadBanner()
+        
+        if let font = UIFont(name: "Marker Felt", size: 15) {
+            self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName:font], for: .normal)
+            self.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSFontAttributeName:font], for: .normal)
+        }
     }
     
     func loadBanner() {
@@ -65,6 +70,10 @@ class RecipeDetailVC: UIViewController {
             recipeEditController.indexRow = indexRow!
             recipeEditController.isInEditMode = true
         }
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

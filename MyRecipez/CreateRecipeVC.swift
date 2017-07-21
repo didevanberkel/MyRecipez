@@ -51,6 +51,10 @@ class CreateRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         self.hideKeyboard()
+        
+        if let font = UIFont(name: "Marker Felt", size: 15) {
+            self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName:font], for: .normal)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
@@ -153,5 +157,9 @@ class CreateRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavig
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true;
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
