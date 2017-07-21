@@ -33,8 +33,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         searchController.searchBar.placeholder = "Search recipe"
         searchController.searchBar.sizeToFit()
         searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.delegate = self;
         
         loadBanner()
+        
+        self.hideKeyboard()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,6 +106,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 recipeDetailController.indexRow = indexPath!
             }
         }
+        searchController.isActive = false
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -127,19 +131,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let searchText = searchController.searchBar.text {
-            filterContent(searchText)
-            tableView.reloadData()
+            if searchText != "" {
+                filterContent(searchText)
+                tableView.reloadData()
+            } else {
+                searchResult = recipes
+                tableView.reloadData()
+            }
         }
     }
     
-    //    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-    //        if let searchText = searchController.searchBar.text {
-    //            filterContent(searchText)
-    //            tableView.reloadData()
-    //        }
-    //    }
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
     
     func filterContent(_ searchText: String) {
         searchResult = recipes.filter({ (recipe: Recipe) -> Bool in
@@ -148,5 +154,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return titleMatch != nil || ingredientsMatch != nil
         })
     }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchController.searchBar.endEditing(true)
+    }
+    
 }
 
